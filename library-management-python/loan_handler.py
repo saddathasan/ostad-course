@@ -1,19 +1,19 @@
 import csv
 
-def load_books_from_csv(file_name):
-    books = []
+def load_loans(file_name):
+    loans = []
     try:
         with open(file_name, "r") as file:
             reader = csv.DictReader(file)
             for row in reader:
-                books.append(row)
+                loans.append(row)
     except FileNotFoundError:
         pass
-    return books
+    return loans
 
-def save_books_to_csv(file_name, books):
+def save_loans(file_name, loans):
     with open(file_name, "w", newline="") as file:
-        fieldnames = ["Title", "Authors", "ISBN", "Year", "Price", "Quantity"]
+        fieldnames = ["Title", "Borrower", "Phone", "BorrowDate", "DueDate"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(books)
+        writer.writerows(loans)

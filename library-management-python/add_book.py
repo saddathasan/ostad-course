@@ -1,11 +1,10 @@
 import save_books_to_file
 
-file_name = "books.csv"  # File to store book information
+file_name = "books.csv"
 
 def add_book(title, authors, isbn, year, price, quantity):
     books = save_books_to_file.load_books_from_csv(file_name)
     
-    # Add the new book
     new_book = {
         "Title": title,
         "Authors": authors,
